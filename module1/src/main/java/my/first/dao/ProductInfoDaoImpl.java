@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ProductInfoDaoImpl implements ProductInfoDao {
 
-    public static final String PRODUCT_INFO_CREATE = "INSERT INTO product_info (id, name, price) VALUES (?, ?, ?)";
+//    public static final String PRODUCT_INFO_CREATE = "INSERT INTO product_info (id, name, price) VALUES (?, ?, ?)";
     private final MysqlJdbcDataSource dataSource;
     private final SessionFactory sessionFactory;
 
@@ -52,6 +52,7 @@ public class ProductInfoDaoImpl implements ProductInfoDao {
             sess.saveOrUpdate(productInfo);
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             if (tx != null) tx.rollback();
             throw e;
         }

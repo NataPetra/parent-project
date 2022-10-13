@@ -22,27 +22,27 @@
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
-    <autoscroll-to-editor value="false" />
+    <autoscroll-to-editor value="true" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="455714ab-aaa1-49ce-a88e-36f45690b963">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[create schema if not exists test;
-
---DDL
-create table test.product_info(
-id int not null primary key,
-name varchar(255),
-price float(10,2)
-)
-
---DML
-insert into test.product_info (id, name, price)
-values (1, 'Coffee Black', 3.5);
-
-SELECT * FROM test.product_info;]]></console>
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[--create schema if not exists test;
+--
+----DDL
+--create table test.product_info(
+--id int not null primary key,
+--name varchar(255),
+--price float(10,2)
+--)
+--
+----DML
+--insert into test.product_info (id, name, price)
+--values (1, 'Coffee Black', 3.5);
+--
+--SELECT * FROM test.product_info;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -52,6 +52,7 @@ SELECT * FROM test.product_info;]]></console>
     <connection id="455714ab-aaa1-49ce-a88e-36f45690b963" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="eshop.product_info" active-filter-id="" />
     <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="test.product_info" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
@@ -96,7 +97,7 @@ SELECT * FROM test.product_info;]]></console>
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="3306" />
-          <database value="test" />
+          <database value="" />
           <type value="USER_PASSWORD" />
           <user value="root" />
           <deprecated-pwd value="cm9vdA==" />

@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity(name="products_info")
+@Entity(name="product_info")
 @Data
 public class ProductInfo implements Serializable {
 
