@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <!--        <createTable tableName="product_info" catalogName="test">-->
+    <!--            <column name="id" type="INT"/>-->
+    <!--            <column name="name" type="VARCHAR"/>-->
+    <!--            <column name="price" type="FLOAT(10,2)"/>-->
+    <!--        </createTable>-->
+    <changeSet id="1" author="NataPetra">
+        <sql>
+            create table if not exists test.product_info(
+            id int not null primary key,
+            name varchar(255),
+            price float(10,2)
+            )
+        </sql>
+    </changeSet>
+    
+    <changeSet id="2" author="NataPetra">
+        <sql>
+            INSERT INTO test.product_info (id, name, price) VALUES (1, 'Coffee Black', 3.5);
+            INSERT INTO test.product_info (id, name, price) VALUES (2, 'Coffee Espresso', 2.9);
+            INSERT INTO test.product_info (id, name, price) VALUES (3, 'Coffee Latte', 4.0);
+            INSERT INTO test.product_info (id, name, price) VALUES (4, 'Coffee Latte Big', 4.5);
+            INSERT INTO test.product_info (id, name, price) VALUES (5, 'Black Tea', 2.5);
+            INSERT INTO test.product_info (id, name, price) VALUES (6, 'Green Tea', 2.5);
+            INSERT INTO test.product_info (id, name, price) VALUES (7, 'Water Still', 1.5);
+            INSERT INTO test.product_info (id, name, price) VALUES (8, 'Water Sparkling', 1.5);
+            INSERT INTO test.product_info (id, name, price) VALUES (9, 'Coca Cola', 2.0);
+            INSERT INTO test.product_info (id, name, price) VALUES (10, 'Pepsi Cola', 2.0);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
+
