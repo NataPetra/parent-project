@@ -1,6 +1,13 @@
 my\first\dao\ProductInfoDao.class
-my\first\dao\ProductInfoDaoImpl.class
 my\first\MysqlJdbcDataSource.class
-my\first\model\ProductInfo.class
+my\first\dao\DepartmentDao.class
 my\first\MysqlSessionFactory.class
+my\first\dao\EmployeeDaoImpl.class
+my\first\dao\DepartmentDaoImpl.class
+my\first\model\Employee.class
+my\first\dao\ProductInfoDaoImpl.class
+my\first\dao\EmployeeDao.class
+my\first\model\ProductInfo.class
+my\first\model\Department.class
 my\first\DataConfig.class
+my\first\model\EmployeeDetail.class

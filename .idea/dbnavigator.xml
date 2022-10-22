@@ -52,7 +52,10 @@
     <connection id="455714ab-aaa1-49ce-a88e-36f45690b963" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="eshop_test.product_info" active-filter-id="" />
     <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="eshop.product_info" active-filter-id="" />
+    <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="eshop.t_employee" active-filter-id="" />
+    <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="test.DATABASECHANGELOG" active-filter-id="" />
     <filter-actions connection-id="455714ab-aaa1-49ce-a88e-36f45690b963" dataset="test.product_info" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">

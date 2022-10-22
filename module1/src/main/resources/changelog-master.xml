@@ -36,5 +36,55 @@
 <!--        </sql>-->
 <!--    </changeSet>-->
 
+    <changeSet id="2" author="NataPetra">
+        <sql>
+            CREATE TABLE if not exists t_employee (
+            F_ID BIGINT(19) NOT NULL,
+            BIRTH_DATE DATE NULL,
+            CELL_PHONE VARCHAR(45) NULL,
+            FIRSTNAME VARCHAR(255) NULL,
+            LASTNAME VARCHAR(255) NULL,
+            PRIMARY KEY (F_ID));
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="NataPetra">
+        <sql>
+            CREATE TABLE if not exists t_employeedetail (
+            F_EMPLOYEEID BIGINT(19) NOT NULL,
+            CITY VARCHAR(45) NULL,
+            COUNTRY VARCHAR(45) NULL,
+            STATE VARCHAR(45) NULL,
+            STREET VARCHAR(255) NULL,
+            PRIMARY KEY (F_EMPLOYEEID),
+            CONSTRAINT F_EMPLOYEEID
+            FOREIGN KEY (F_EMPLOYEEID)
+            REFERENCES t_employee (F_ID)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE);
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="NataPetra">
+        <sql>
+            CREATE TABLE t_employee_seq (
+            next_val INT UNSIGNED PRIMARY KEY NOT NULL
+            );
+            INSERT INTO t_employee_seq VALUES (0);
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_department (
+            F_DEPARTMENTID BIGINT(19) UNSIGNED PRIMARY KEY NOT NULL,
+            F_DEPARTMENTNAME VARCHAR(255) NOT NULL
+            );
+            ALTER TABLE t_employee ADD F_DEPARTMENTID BIGINT(19) UNSIGNED NOT NULL;
+            ALTER TABLE t_employee ADD CONSTRAINT FK_F_DEPARTMENTID
+            FOREIGN KEY (F_DEPARTMENTID) REFERENCES t_department(F_DEPARTMENTID);
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
 
