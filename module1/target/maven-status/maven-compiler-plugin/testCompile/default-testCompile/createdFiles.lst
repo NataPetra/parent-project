@@ -3,3 +3,4 @@ my\first\dao\DepartmentDaoImplTest.class
 my\first\dao\BaseDaoTest.class
 my\first\dao\PrintEnvVarTest.class
 my\first\dao\ProductInfoDaoImplTest.class
+my\first\dao\MeetingDaoImplTest.class

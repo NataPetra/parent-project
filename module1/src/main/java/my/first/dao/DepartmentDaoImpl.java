@@ -1,10 +1,11 @@
 package my.first.dao;
 
 import my.first.model.Department;
-import my.first.model.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class DepartmentDaoImpl implements DepartmentDao {
 
@@ -32,6 +33,14 @@ public class DepartmentDaoImpl implements DepartmentDao {
     @Override
     public Department findById(long id) {
         return sessionFactory.openSession().get(Department.class, id);
+    }
+
+    @Override
+    public List<String> findAllDepartmentNames() {
+        try (Session session = sessionFactory.openSession()) {
+            String query = "SELECT d.departmentName FROM Department AS d";
+            return session.createQuery(query, String.class).list();
+        }
     }
 
     @Override

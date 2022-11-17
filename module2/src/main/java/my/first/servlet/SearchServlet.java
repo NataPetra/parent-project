@@ -2,7 +2,7 @@ package my.first.servlet;
 
 import lombok.SneakyThrows;
 import my.first.model.ProductInfo;
-import my.search.servise.SearchService;
+import my.search.service.SearchService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

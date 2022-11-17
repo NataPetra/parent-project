@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -37,6 +38,9 @@ public class DepartmentDaoImplTest extends BaseDaoTest{
     @After
     public void tearDown() throws Exception {
         targetObject = null;
+        Connection conn = testMysqlJdbcDataSource.getConnection();
+        conn.createStatement().executeUpdate("delete from t_department;");
+        conn.close();
     }
 
     @Test
@@ -59,13 +63,29 @@ public class DepartmentDaoImplTest extends BaseDaoTest{
         rs.next();
         int actualSize = rs.getInt(1);
         assertEquals(1, actualSize);
-        conn.createStatement().executeUpdate("delete from t_department;");
-        conn.close();
+//        conn.createStatement().executeUpdate("delete from t_department;");
+//        conn.close();
     }
 
     @Test
     public void findById() {
         //сделать дата сет на список сотрудников
+    }
+
+    @Test
+    @SneakyThrows
+    public void findAllDepartmentNames() {
+        //Given
+        IDataSet dataSet = new FlatXmlDataSetBuilder()
+                .build(DepartmentDaoImplTest.class.getResourceAsStream("DepartmentDaoImplTest.xml"));
+        DatabaseOperation.CLEAN_INSERT.execute(iDatabaseConnection, dataSet);
+
+        //When
+        List<String> departmentName = targetObject.findAllDepartmentNames();
+
+        //Then
+        assertEquals(1, departmentName.size());
+        assertEquals("Hidden", departmentName.get(0));
     }
 
     @Test

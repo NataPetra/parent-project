@@ -14,6 +14,7 @@ public class DataConfig {
 
     @SneakyThrows
     public static Properties getJdbcProperties(String propertyFileName) {
+//        System.out.println("USER.DIRECTORY HERE:" + System.getProperty("user.dir"));
         if (jdbcProperties == null) {
             jdbcProperties = new Properties();
             jdbcProperties.load(MysqlJdbcDataSource.class

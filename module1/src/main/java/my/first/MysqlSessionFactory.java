@@ -1,9 +1,6 @@
 package my.first;
 
-import my.first.model.Department;
-import my.first.model.Employee;
-import my.first.model.EmployeeDetail;
-import my.first.model.ProductInfo;
+import my.first.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -34,10 +31,12 @@ public final class MysqlSessionFactory {
                 .build();
 
         Metadata metadata = new MetadataSources(standardRegistry)
-                .addAnnotatedClass(ProductInfo.class)
-                .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(EmployeeDetail.class)
-                .addAnnotatedClass(Department.class)
+//                .addAnnotatedClass(ProductInfo.class)
+//                .addAnnotatedClass(Employee.class)
+//                .addAnnotatedClass(EmployeeDetail.class)
+//                .addAnnotatedClass(Department.class)
+//                .addAnnotatedClass(Meeting.class)
+                .addPackage(Meeting.class.getPackage())
                 .getMetadataBuilder()
                 .build();
 
@@ -49,7 +48,7 @@ public final class MysqlSessionFactory {
     private static Map<String, String> buildSettings(String jdbcPropertiesFileName,
                                                      String hibernatePropertiesFileName) {
         Map<String, String> settings = new HashMap<>();
-        settings.put("connection.driver_class",
+        settings.put("hibernate.connection.driver_class",
                 DataConfig.getJdbcProperties(jdbcPropertiesFileName).getProperty("driver"));
         settings.put("hibernate.connection.url",
                 DataConfig.getJdbcProperties(jdbcPropertiesFileName).getProperty("url"));

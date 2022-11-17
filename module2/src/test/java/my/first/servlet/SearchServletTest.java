@@ -1,7 +1,7 @@
 package my.first.servlet;
 
 import lombok.SneakyThrows;
-import my.search.servise.SearchService;
+import my.search.service.SearchService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
