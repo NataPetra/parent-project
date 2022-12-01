@@ -1,24 +1,17 @@
 package my.first.dao;
 
 import lombok.SneakyThrows;
-import my.first.MysqlJdbcDataSource;
 import my.first.model.Department;
-import my.first.model.Employee;
-import my.first.model.EmployeeDetail;
-import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.dbunit.ext.mysql.MySqlConnection;
 import org.dbunit.operation.DatabaseOperation;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,13 +19,14 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 public class DepartmentDaoImplTest extends BaseDaoTest{
 
+    @Autowired
     DepartmentDao targetObject;
 
     @Before
     public void setUp() throws Exception {
-        targetObject = new DepartmentDaoImpl(testSessionFactory);
     }
 
     @After

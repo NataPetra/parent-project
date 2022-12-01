@@ -8,19 +8,24 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 
 import static org.junit.Assert.*;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 public class EmployeeDaoImplTest extends BaseDaoTest{
 
-    EmployeeDaoImpl targetObject;
+    @Autowired
+    EmployeeDao targetObject;
 
     @Before
     public void setUp() throws Exception {
-        targetObject= new EmployeeDaoImpl(testSessionFactory);
     }
 
     @After
