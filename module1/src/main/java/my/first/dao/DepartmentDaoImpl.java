@@ -1,70 +1,52 @@
 package my.first.dao;
 
 import my.first.model.Department;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Repository
+@Transactional
 public class DepartmentDaoImpl implements DepartmentDao {
 
-    private final SessionFactory sessionFactory;
-
-    public DepartmentDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Override
     public void create(Department department) {
-        Transaction tx = null;
-        try (Session sess = sessionFactory.openSession()){
-            tx = sess.beginTransaction();
-            sess.saveOrUpdate(department);
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            if (tx != null) tx.rollback();
-            throw e;
-        }
-
+        sessionFactory.getCurrentSession()
+                .saveOrUpdate(department);
     }
 
     @Override
     public Department findById(long id) {
-        return sessionFactory.openSession().get(Department.class, id);
+        return sessionFactory.getCurrentSession()
+                .get(Department.class, id);
     }
 
     @Override
     public List<String> findAllDepartmentNames() {
-        try (Session session = sessionFactory.openSession()) {
-            String query = "SELECT d.departmentName FROM Department AS d";
-            return session.createQuery(query, String.class).list();
-        }
+        return sessionFactory.getCurrentSession()
+                .createQuery("SELECT d.departmentName FROM Department AS d", String.class)
+                .list();
     }
 
     @Override
     public void update(Department department) {
-
     }
 
     @Override
     public void delete(Department department) {
-        Transaction tx = null;
-        try (Session sess = sessionFactory.openSession()) {
-            tx = sess.beginTransaction();
-            sess.delete(department);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            throw e;
-        }
+        sessionFactory.getCurrentSession()
+                .delete(department);
     }
 
     @Override
     public void delete(long id) {
-        Department department = sessionFactory.openSession()
-                .load(Department.class, id);
-        delete(department);
+        delete(sessionFactory.getCurrentSession()
+                .load(Department.class, id));
     }
 }

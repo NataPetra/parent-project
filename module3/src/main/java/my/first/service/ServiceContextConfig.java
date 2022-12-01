@@ -1,4 +1,4 @@
-package my.search.service;
+package my.first.service;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 @Configuration
-@ComponentScan(basePackages = "my.search.service")
+@ComponentScan(basePackages = {"my.first"})
 public class ServiceContextConfig {
 
     @Bean(name = "httpClientWithTimeout")

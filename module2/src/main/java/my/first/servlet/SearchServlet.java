@@ -1,8 +1,11 @@
 package my.first.servlet;
 
 import lombok.SneakyThrows;
+import my.first.dao.ProductInfoDaoImpl;
 import my.first.model.ProductInfo;
-import my.search.service.SearchService;
+import my.first.service.SearchService;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -22,12 +25,7 @@ public class SearchServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-//        try {
-//            searchService = new SearchService();
-//        } catch (IOException|ClassNotFoundException e) {
-//            throw new ServletException(e);
-//        }
-        searchService = new SearchService();
+        searchService = new SearchService(new ProductInfoDaoImpl());
     }
 
     @Override

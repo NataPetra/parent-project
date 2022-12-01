@@ -86,35 +86,6 @@
         </sql>
     </changeSet>
 
-<!--    <changeSet id="6" author="NataPetra">-->
-<!--        <sql>-->
-<!--            CREATE TABLE IF NOT EXISTS t_meeting (-->
-<!--                F_MEETING_ID BIGINT(19) UNSIGNED PRIMARY KEY NOT NULL,-->
-<!--                F_MEETINGDATE DATETIME,-->
-<!--                F_SUBJECT VARCHAR(255) NOT NULL-->
-<!--            );-->
-
-<!--            CREATE TABLE t_meeting_seq (-->
-<!--                next_val INT UNSIGNED PRIMARY KEY NOT NULL-->
-<!--            );-->
-<!--            INSERT INTO t_meeting_seq VALUES (0);-->
-
-<!--            CREATE TABLE IF NOT EXISTS t_employee_meeting (-->
-<!--                F_EMPLOYEEID BIGINT(19) NOT NULL,-->
-<!--                F_MEETING_ID BIGINT(19) UNSIGNED NOT NULL,-->
-
-<!--            CONSTRAINT F_EMPLOYEE_ID-->
-<!--            FOREIGN KEY (F_EMPLOYEEID)-->
-<!--            REFERENCES t_employee (F_ID),-->
-
-<!--            CONSTRAINT F_MEETINGID-->
-<!--            FOREIGN KEY (F_MEETING_ID)-->
-<!--            REFERENCES t_meeting (F_MEETING_ID)-->
-<!--            );-->
-
-<!--        </sql>-->
-<!--    </changeSet>-->
-
     <changeSet id="6" author="a.veramkovich@gmail.com">
         <sql>
             CREATE TABLE IF NOT EXISTS `t_meeting` (

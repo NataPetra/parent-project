@@ -18,12 +18,6 @@ public class MysqlJdbcDataSource {
 
     @SneakyThrows
     public MysqlJdbcDataSource(String propertyFileName) {
-//        jdbcProperties = new Properties();
-//        jdbcProperties.load(MysqlJdbcDataSource.class
-//                .getClassLoader()
-//                .getResourceAsStream(propertyFileName));
-//
-//        Class.forName(jdbcProperties.getProperty("driver"));
         this.propertyFileName = propertyFileName;
         Class.forName(DataConfig.getJdbcProperties(propertyFileName).getProperty("driver"));
     }
@@ -37,6 +31,4 @@ public class MysqlJdbcDataSource {
                 jdbcProperties.getProperty("password")
         );
     }
-
-
 }
