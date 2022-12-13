@@ -15,7 +15,7 @@ public interface EmployeeDao {
 
     void delete(Employee employee);
 
-
+    List<Employee> findAll();
 
 
 }

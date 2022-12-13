@@ -1,6 +1,8 @@
 package my.first.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -8,7 +10,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "t_employee")
-@Data
+@Getter
+@Setter
 public class Employee {
 
     @Id
@@ -43,4 +46,18 @@ public class Employee {
             inverseJoinColumns = @JoinColumn(name = "F_MEETING_ID")
     )
     private Set<Meeting> meetings;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", birthDate=" + birthDate +
+                ", cellPhone='" + cellPhone + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", employeeDetail=" + employeeDetail +
+                ", department=" + department +
+                ", meetings=" + meetings +
+                '}';
+    }
 }

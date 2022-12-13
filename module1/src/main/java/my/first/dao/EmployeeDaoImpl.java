@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class EmployeeDaoImpl implements EmployeeDao{
@@ -35,5 +37,10 @@ public class EmployeeDaoImpl implements EmployeeDao{
         sessionFactory.getCurrentSession()
                 .delete(sessionFactory.getCurrentSession()
                         .load(Employee.class, employee.getId()));
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return sessionFactory.getCurrentSession().createQuery("from Employee", Employee.class).list();
     }
 }
