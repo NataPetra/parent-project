@@ -106,5 +106,43 @@
         </sql>
     </changeSet>
 
+    <changeSet id="7" author="NataPetra">
+        <sql>
+            CREATE TABLE t_employee_photo (
+            ID VARCHAR(200) NOT NULL,
+            EMPLOYEE_ID BIGINT NULL,
+            EMPLOYEE_PHOTO BLOB NOT NULL,
+            CONSTRAINT pk_t_employee_photo PRIMARY KEY (ID)
+            );
+
+            ALTER TABLE t_employee_photo
+
+            ADD CONSTRAINT FK_T_EMPLOYEE_PHOTO_ON_EMPLOYEE
+            FOREIGN KEY (EMPLOYEE_ID)
+            REFERENCES t_employee (F_ID);
+
+<!--            CREATE TABLE IF NOT EXISTS t_employee_photo (-->
+<!--            ID BIGINT(19) PRIMARY KEY NOT NULL,-->
+<!--            EMPLOYEE_ID BIGINT(19) NOT NULL,-->
+<!--            PHOTO BLOB NOT NULL,-->
+<!--            CONSTRAINT F_EMPLOYEEID_PHOTO-->
+<!--            FOREIGN KEY (EMPLOYEE_ID)-->
+<!--            REFERENCES t_employee (F_ID)-->
+<!--            ON DELETE CASCADE-->
+<!--            ON UPDATE CASCADE);-->
+
+        </sql>
+    </changeSet>
+
+<!--    <changeSet id="8" author="NataPetra">-->
+<!--        <sql>-->
+<!--            CREATE TABLE t_employee_photo_seq (-->
+<!--            next_val INT UNSIGNED PRIMARY KEY NOT NULL-->
+<!--            );-->
+<!--            INSERT INTO t_employee_photo_seq VALUES (0);-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+
 </databaseChangeLog>
 

@@ -69,6 +69,7 @@ public class DataConfig {
                 ProductInfo.class,
                 Employee.class,
                 EmployeeDetail.class,
+                EmployeePhoto.class,
                 Department.class,
                 Meeting.class
         );

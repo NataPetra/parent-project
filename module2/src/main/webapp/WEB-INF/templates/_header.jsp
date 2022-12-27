@@ -28,7 +28,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/hello/add-prod.html">Add products</a></li>
-            <li><a class="dropdown-item" href="/hello/add-dep.html">Add dep</a></li>
+            <li><a class="dropdown-item" href="/hello/add-department.html">Add dep</a></li>
             <li><a class="dropdown-item" href="/hello/add-employee.html">Add employee</a></li>
             <li><a class="dropdown-item" href="/hello/add-meeting.html">Add meeting</a></li>
           </ul>

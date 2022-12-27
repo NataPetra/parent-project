@@ -35,6 +35,9 @@ public class Employee {
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private EmployeeDetail employeeDetail;
 
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    private EmployeePhoto employeePhoto;
+
     @ManyToOne
     @JoinColumn(name = "F_DEPARTMENTID")
     private Department department;
@@ -46,6 +49,7 @@ public class Employee {
             inverseJoinColumns = @JoinColumn(name = "F_MEETING_ID")
     )
     private Set<Meeting> meetings;
+
 
     @Override
     public String toString() {

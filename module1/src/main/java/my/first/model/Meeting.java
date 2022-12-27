@@ -28,4 +28,13 @@ public class Meeting {
 
     @ManyToMany(mappedBy = "meetings", fetch = FetchType.EAGER)
     private Set<Employee> employees;
+
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "id=" + id +
+                ", meetingDate=" + meetingDate +
+                ", subject='" + subject + '\'' +
+                '}';
+    }
 }

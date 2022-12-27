@@ -1,5 +1,6 @@
 package my.first.web;
 
+import lombok.SneakyThrows;
 import my.first.model.Department;
 import my.first.model.Employee;
 import my.first.service.DepartmentService;
@@ -42,10 +43,11 @@ public class AddEmployeeController {
 //    }
 
     @PostMapping("/add-employee.html")
+    @SneakyThrows
     public String addEmployee(@RequestParam("photo") MultipartFile file, Employee employee) {
         System.out.println("Call addEployee: " + employee);
         System.out.println(file.getOriginalFilename() + ": " + file.getSize());
-        employeeService.add(employee);
+        employeeService.add(employee, file.getBytes());
         return "redirect:/employee-list.html";
     }
 
