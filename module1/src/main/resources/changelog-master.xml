@@ -143,6 +143,25 @@
 <!--        </sql>-->
 <!--    </changeSet>-->
 
+    <changeSet id="8" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS app_user (
+            ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            USER_PASSWORD VARCHAR(255),
+            USER_ROLE VARCHAR(255),
+            CONSTRAINT pk_app_user PRIMARY KEY (ID)
+            );
+
+            INSERT INTO app_user VALUES (
+                '0a9caff8-6858-49a3-abee-7924e204dd38',
+                'root',
+                'root',
+                'ADMIN'
+            );
+        </sql>
+    </changeSet>
+
 
 </databaseChangeLog>
 

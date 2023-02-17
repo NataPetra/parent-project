@@ -71,7 +71,8 @@ public class DataConfig {
                 EmployeeDetail.class,
                 EmployeePhoto.class,
                 Department.class,
-                Meeting.class
+                Meeting.class,
+                AppUser.class
         );
         sessionFactoryBean.setHibernateProperties(hibernateProperties);
         return sessionFactoryBean;

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -16,5 +18,10 @@ public class ProductService {
     public void addNewProduct(ProductInfo product) {
         //TODO: aad field validation; check product name duplicates;
         productInfoDao.create(product);
+    }
+
+    @Transactional
+    public List<ProductInfo> getAll() {
+        return productInfoDao.readAll();
     }
 }

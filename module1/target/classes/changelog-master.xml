@@ -86,35 +86,6 @@
         </sql>
     </changeSet>
 
-<!--    <changeSet id="6" author="NataPetra">-->
-<!--        <sql>-->
-<!--            CREATE TABLE IF NOT EXISTS t_meeting (-->
-<!--                F_MEETING_ID BIGINT(19) UNSIGNED PRIMARY KEY NOT NULL,-->
-<!--                F_MEETINGDATE DATETIME,-->
-<!--                F_SUBJECT VARCHAR(255) NOT NULL-->
-<!--            );-->
-
-<!--            CREATE TABLE t_meeting_seq (-->
-<!--                next_val INT UNSIGNED PRIMARY KEY NOT NULL-->
-<!--            );-->
-<!--            INSERT INTO t_meeting_seq VALUES (0);-->
-
-<!--            CREATE TABLE IF NOT EXISTS t_employee_meeting (-->
-<!--                F_EMPLOYEEID BIGINT(19) NOT NULL,-->
-<!--                F_MEETING_ID BIGINT(19) UNSIGNED NOT NULL,-->
-
-<!--            CONSTRAINT F_EMPLOYEE_ID-->
-<!--            FOREIGN KEY (F_EMPLOYEEID)-->
-<!--            REFERENCES t_employee (F_ID),-->
-
-<!--            CONSTRAINT F_MEETINGID-->
-<!--            FOREIGN KEY (F_MEETING_ID)-->
-<!--            REFERENCES t_meeting (F_MEETING_ID)-->
-<!--            );-->
-
-<!--        </sql>-->
-<!--    </changeSet>-->
-
     <changeSet id="6" author="a.veramkovich@gmail.com">
         <sql>
             CREATE TABLE IF NOT EXISTS `t_meeting` (
@@ -134,6 +105,63 @@
             INSERT INTO t_meeting_seq VALUES (0);
         </sql>
     </changeSet>
+
+    <changeSet id="7" author="NataPetra">
+        <sql>
+            CREATE TABLE t_employee_photo (
+            ID VARCHAR(200) NOT NULL,
+            EMPLOYEE_ID BIGINT NULL,
+            EMPLOYEE_PHOTO BLOB NOT NULL,
+            CONSTRAINT pk_t_employee_photo PRIMARY KEY (ID)
+            );
+
+            ALTER TABLE t_employee_photo
+
+            ADD CONSTRAINT FK_T_EMPLOYEE_PHOTO_ON_EMPLOYEE
+            FOREIGN KEY (EMPLOYEE_ID)
+            REFERENCES t_employee (F_ID);
+
+<!--            CREATE TABLE IF NOT EXISTS t_employee_photo (-->
+<!--            ID BIGINT(19) PRIMARY KEY NOT NULL,-->
+<!--            EMPLOYEE_ID BIGINT(19) NOT NULL,-->
+<!--            PHOTO BLOB NOT NULL,-->
+<!--            CONSTRAINT F_EMPLOYEEID_PHOTO-->
+<!--            FOREIGN KEY (EMPLOYEE_ID)-->
+<!--            REFERENCES t_employee (F_ID)-->
+<!--            ON DELETE CASCADE-->
+<!--            ON UPDATE CASCADE);-->
+
+        </sql>
+    </changeSet>
+
+<!--    <changeSet id="8" author="NataPetra">-->
+<!--        <sql>-->
+<!--            CREATE TABLE t_employee_photo_seq (-->
+<!--            next_val INT UNSIGNED PRIMARY KEY NOT NULL-->
+<!--            );-->
+<!--            INSERT INTO t_employee_photo_seq VALUES (0);-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+    <changeSet id="8" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS app_user (
+            ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            USER_PASSWORD VARCHAR(255),
+            USER_ROLE VARCHAR(255),
+            CONSTRAINT pk_app_user PRIMARY KEY (ID)
+            );
+
+            INSERT INTO app_user VALUES (
+                '0a9caff8-6858-49a3-abee-7924e204dd38',
+                'root',
+                'root',
+                'ADMIN'
+            );
+        </sql>
+    </changeSet>
+
 
 </databaseChangeLog>
 
